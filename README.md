@@ -44,5 +44,7 @@ Key phrase extraction
 
 TextRank is similar in concept to Google's PageRank, but it operates on textual units (words, phrases, or sentences) rather than web pages.
 
+*OUTPUT*-
+<img width="784" height="197" alt="Image" src="https://github.com/user-attachments/assets/c30c4933-7f7f-4998-aff1-73a764f63a0c" />
 
 
