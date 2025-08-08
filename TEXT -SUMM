@@ -1,0 +1,26 @@
+import spacy
+import pytextrank
+
+# Load the spaCy model
+nlp = spacy.load("en_core_web_lg")
+
+# Add PyTextRank to the spaCy pipeline
+nlp.add_pipe("textrank")
+
+# Updated article text
+article_text = """
+Artificial Intelligence (AI) is reshaping modern society faster than ever. From medicine to manufacturing, AI applications
+enhance efficiency and support decision-making. In medicine, deep learning systems help detect diseases earlier and more accurately.
+Manufacturing industries employ AI-powered robots to automate repetitive tasks and monitor quality control. Additionally, tools like
+ChatGPT and MidJourney are changing how humans engage with computers and create digital content. Despite the advantages, there are
+concerns about AI’s impact on employment, data security, and ethics. Policymakers, engineers, and educators must collaborate to create
+responsible frameworks for AI use. While the potential of AI is enormous, its growth must be managed with care to prevent unintended harm.
+"""
+
+# Process the text through the NLP pipeline
+doc = nlp(article_text)
+
+# Display top-ranked sentences for the summary
+print("=== 🔍 Summary of the Article ===\n")
+for sent in doc._.textrank.summary(limit_phrases=10, limit_sentences=3):
+    print("- " + str(sent))
